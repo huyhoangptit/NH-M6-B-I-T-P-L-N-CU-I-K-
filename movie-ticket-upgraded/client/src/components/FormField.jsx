@@ -1,1 +1,0 @@
-export default function FormField({ label, id, error, ...props }) { return <div className="form-field"><label htmlFor={id}>{label}</label><input id={id} {...props} aria-invalid={Boolean(error)} />{error && <small className="field-error">{error}</small>}</div>; }
