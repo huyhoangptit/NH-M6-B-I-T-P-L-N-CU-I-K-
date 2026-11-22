@@ -1,0 +1,1 @@
+export default function Footer() { return <footer className="site-footer"><div className="container footer-inner"><div><b>CineTicket</b><p>Đặt vé xem phim nhanh chóng và thuận tiện.</p></div><small>© {new Date().getFullYear()} CineTicket – Bài tập lớn Lập trình Web.</small></div></footer>; }

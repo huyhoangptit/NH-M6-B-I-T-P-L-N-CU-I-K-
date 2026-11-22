@@ -1,0 +1,5 @@
+import { useMemo } from 'react';
+export default function BookingSummary({ selectedSeats, showtime, onContinue }) {
+  const total = useMemo(() => selectedSeats.reduce((sum, seat) => sum + seat.price, 0), [selectedSeats]);
+  return <aside className="booking-summary"><h3>Thông tin đặt vé</h3><div className="summary-line"><span>Phim</span><b>{showtime?.movie?.title || '—'}</b></div><div className="summary-line"><span>Suất chiếu</span><b>{showtime ? new Date(showtime.startAt).toLocaleString('vi-VN') : '—'}</b></div><div className="summary-line"><span>Ghế</span><b>{selectedSeats.length ? selectedSeats.map((seat) => seat.code).join(', ') : 'Chưa chọn'}</b></div><div className="summary-line"><span>Số lượng</span><b>{selectedSeats.length}/8</b></div><div className="summary-total"><span>Tổng tiền</span><strong>{total.toLocaleString('vi-VN')} đ</strong></div><button className="btn btn-primary btn-block" disabled={!selectedSeats.length} onClick={onContinue}>Tiếp tục</button><small>Vé được xác nhận sau khi API tạo đặt vé thành công. Không có thanh toán thật.</small></aside>;
+}
